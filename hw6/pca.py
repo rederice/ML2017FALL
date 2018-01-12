@@ -22,7 +22,7 @@ eigenface, eigenvalue, v = np.linalg.svd( (ims.T - x_mean).T, full_matrices=Fals
 # eigenface = np.load("eigenface.npy")
 # eigenvalue = np.load("eigenvalue.npy")
 
-img0 = io.imread(jpgfiles[0])
+img0 = io.imread(sys.argv[2])
 
 w0 = img0.flatten().dot(eigenface[:,0])*eigenface[:,0]
 w1 = img0.flatten().dot(eigenface[:,1])*eigenface[:,1]
@@ -34,4 +34,4 @@ tmp -= np.min(tmp)
 tmp /= np.max(tmp)
 tmp=(tmp*255).astype(np.uint8)
 tmp=tmp.reshape(600,600,3)
-io.imsave(sys.argv[2], tmp)
+io.imsave("reconstruction.jpg", tmp)
