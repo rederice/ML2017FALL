@@ -19,5 +19,5 @@ pred = model.predict(X_all)
 pred = np.argmax(pred, axis=-1)
 
 with open(sys.argv[2], 'w') as f:
-        print('id,label', file=f)
-        print('\n'.join(['{},{}'.format(i, p) for (i, p) in enumerate(pred)]), file=f)
+    print('id,label', file=f)
+    print('\n'.join(['{},{}'.format(i, p) for (i, p) in enumerate(pred)]), file=f)
